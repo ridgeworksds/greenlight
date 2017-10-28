@@ -185,3 +185,54 @@ a.signin-link {
   right: 0;
   padding-right: 3px;
 }
+
+body {
+  font: 400 14px/1.4 'Open Sans', Arial, sans-serif;
+}
+h1, h2, h3, h4,h5, h6 {
+  font-family: 'Cabin', Arial, sans-serif;
+  color: #585858;
+}
+h1 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.3;
+}
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.btn-blue-o {
+  background: #02B1E6;
+  padding: 10px 30px;
+  color: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 20px 0 0 0;
+  text-transform: uppercase;
+  border: 0px solid #02b1e6;
+  transition: 0.25s;
+  &:hover {
+    background:#005D88;
+    color: #fff;
+    border: 0px solid #02b1e6;
+  }
+}
+
+/*custom*/
+.alert-danger {
+    background-color: #40AAD0;
+	border: 0;
+	border-radius: 0;
+	color: #fff;
+}
+.header {
+  padding: 20px 40px;
+  margin-bottom: 350px;
+}
+.panel {
+    border: 10px solid #005D88 !important;
+	border-radius: 0;
+}

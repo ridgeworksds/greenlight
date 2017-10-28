@@ -16,8 +16,4 @@
 
 module LandingHelper
 
-  def html5_enabled?
-    Rails.configuration.html5_enabled
-  end
-
 end

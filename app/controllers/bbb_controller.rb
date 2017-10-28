@@ -93,10 +93,7 @@ class BbbController < ApplicationController
         if bbb_res[:returncode] && current_user == user
           JoinMeetingJob.perform_later(user, params[:id], base_url)
           WaitingList.empty(options[:room_owner], options[:meeting_name])
-        # the user can't join because they are on mobile and HTML5 is not enabled.
-        elsif bbb_res[:messageKey] == 'unable_to_join'
-          NotifyUserCantJoinJob.perform_later(user.encrypted_id, params[:id], params[:name])
-        # user will be waiting for a moderator
+      # user will be waiting for a moderator
         else
           NotifyUserWaitingJob.perform_later(user.encrypted_id, params[:id], params[:name])
         end

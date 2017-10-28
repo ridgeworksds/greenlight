@@ -60,7 +60,7 @@
           jqxhr.done(function(data) {
             if (data.messageKey === 'wait_for_moderator') {
               waitForModerator(Meeting.getInstance().getURL());
-            } else if (data.messageKey === 'ok') {
+            } else {
               $(location).attr("href", data.response.join_url);
             }
           });
