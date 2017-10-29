@@ -7,8 +7,8 @@ Rails.application.config.omniauth_twitter = ENV['TWITTER_ID'].present? && ENV['T
 Rails.application.config.omniauth_ldap = ENV['LDAP_SERVER'].present? && ENV['LDAP_UID'].present? && ENV['LDAP_BASE'].present? && ENV['LDAP_BIND_DN'].present? && ENV['LDAP_PASSWORD'].present?
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, ENV['TWITTER_ID'], ENV['TWITTER_SECRET']
-  provider :google_oauth2, ENV['GOOGLE_OAUTH2_ID'], ENV['GOOGLE_OAUTH2_SECRET'],
+  provider :twitter, (ENV['TWITTER_ID'] || Rails.application.secrets.twitter_access_id), (ENV['TWITTER_SECRET'] || Rails.application.secrets.twitter_access_secret)
+  provider :google_oauth2, (ENV['GOOGLE_OAUTH2_ID'] || Rails.application.secrets.google_access_id), (ENV['GOOGLE_OAUTH2_SECRET'] || Rails.application.secrets.google_access_secret),
     scope: ENV['ENABLE_YOUTUBE_UPLOADING'] && ENV['ENABLE_YOUTUBE_UPLOADING'] == "true" ? ['profile', 'email', 'youtube', 'youtube.upload'] : ['profile', 'email'] ,
     access_type: 'online',
     name: 'google',
