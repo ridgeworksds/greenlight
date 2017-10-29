@@ -20,6 +20,8 @@ vendor/.bundle
 !/log/.keep
 !/tmp/.keep
 .env
+/config/application.yml
+/config/secrets.yml
 coverage
 
 # Ignore Byebug command history file.

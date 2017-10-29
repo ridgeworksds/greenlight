@@ -1,8 +1,8 @@
 Rails.application.config.providers = [:google, :twitter, :ldap]
 
-Rails.application.config.omniauth_google = ENV['GOOGLE_OAUTH2_ID'].present? && ENV['GOOGLE_OAUTH2_SECRET'].present?
+Rails.application.config.omniauth_google = (ENV['GOOGLE_OAUTH2_ID'].present? && ENV['GOOGLE_OAUTH2_SECRET'].present?) || (Rails.application.secrets.google_access_id.present? && Rails.application.secrets.google_access_secret.present?)
 
-Rails.application.config.omniauth_twitter = ENV['TWITTER_ID'].present? && ENV['TWITTER_SECRET'].present?
+Rails.application.config.omniauth_twitter = ENV['TWITTER_ID'].present? && ENV['TWITTER_SECRET'].present? || (Rails.application.secrets.twitter_access_id.present? && Rails.application.secrets.twitter_access_secret.present?)
 
 Rails.application.config.omniauth_ldap = ENV['LDAP_SERVER'].present? && ENV['LDAP_UID'].present? && ENV['LDAP_BASE'].present? && ENV['LDAP_BIND_DN'].present? && ENV['LDAP_PASSWORD'].present?
 
