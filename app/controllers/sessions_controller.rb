@@ -50,4 +50,13 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def landing_background
+    if !current_user || !current_user.background? then
+      (ENV['LANDING_BACKGROUND'].present?) ? ENV['LANDING_BACKGROUND'] : 'header_background.jpg'
+    else
+      current_user.background.url
+    end
+  end
+  helper_method :landing_background
 end

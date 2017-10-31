@@ -37,7 +37,7 @@ html, body {
   background-repeat: no-repeat;
 }
 
-body[data-controller=landing].app-background {
+body[data-controller=landing],[data-controller=sessions].app-background {
   @extend .background;
 }
 
